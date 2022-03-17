@@ -5,7 +5,7 @@ import cv2
 import io
 import os
 import numpy as np
-from keras import utils
+from tensorflow.keras import utils
 from keras.models import load_model
 
 # window size
@@ -13,7 +13,7 @@ WIDTH = 400
 HEIGHT = 400
 
 # loading model 
-model = load_model('my_model.h5')
+model = load_model('model/my_model.h5')
 
 # creating window app
 class Window:
@@ -85,7 +85,7 @@ class Window:
        
         image = np.array(self.image_transormation('IMG.jpeg'))
         image = image.reshape((1, 28, 28, 1))
-        print(image.shape)
+
         # probability distribution for digits from 0-9
         predicted_values = model.predict(image)  
 
